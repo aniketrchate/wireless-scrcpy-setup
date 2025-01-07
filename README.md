@@ -21,9 +21,9 @@ Before running this script, ensure the following:
 
 * **scrcpy** is installed. Scrcpy includes the required ADB files (`adb.exe`), so you don't need to install ADB separately.
 
-  * Install scrcpy by following the instructions on [GitHub](https://github.com/Genymobile/scrcpy).
+  * Install scrcpy by following the instructions on [GitHub](https://github.com/Genymobile/scrcpy/releases).
 * Put the **scrcpy** folder location in your system’s **PATH** environment variable.
-* Download the script (e.g., `wifi_scrcpy_connector.bat`) and paste it into the **scrcpy** folder.
+* Download the script (e.g., `scrcpy-Wireless-Connector.bat`) and paste it into the **scrcpy** folder.
 * Your Android device has **Developer Options** and **USB Debugging** enabled.
 
   * To enable Developer Options: Go to *Settings* > *About phone* > Tap on *Build number* 7 times.
@@ -47,9 +47,9 @@ The script does the following:
 
 ## Usage
 
-1. **Download the script** : Download the script (e.g., `wifi_scrcpy_connector.bat`) and paste it in the **scrcpy** folder.
+1. **Download the script** : Download the script (e.g., `scrcpy-Wireless-Connector.bat`) and paste it in the **scrcpy** folder.
 2. **Connect your Android device** : Use a USB cable to connect your Android device to your computer.
-3. **Run the script** : Open **PowerShell** or **Command Prompt**, type the script name (e.g., `wifi_scrcpy_connector.bat`), and press **Enter**.
+3. **Run the script** : Open **PowerShell** or **Command Prompt**, type the script name (e.g., `scrcpy-Wireless-Connector.bat`), and press **Enter**.
 
    * Alternatively, you can **double-click** the script file to run it.
 4. **Enjoy** : Your Android device's screen will be mirrored on your computer, and you can interact with it using the mouse and keyboard.
