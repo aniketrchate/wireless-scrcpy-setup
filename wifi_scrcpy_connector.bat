@@ -1,11 +1,13 @@
 @echo off
 REM ------------------------------------------
 REM Script to connect to Android device over Wi-Fi only and start scrcpy
+REM Created by: blancfox
 REM ------------------------------------------
 
 echo -----------------------------------------------------------
 echo Welcome! This script will help you connect to your Android device
 echo over Wi-Fi and start scrcpy to mirror your device screen.
+echo Created by: blancfox
 echo -----------------------------------------------------------
 
 REM Ensure adb is installed
