@@ -19,14 +19,15 @@ This script helps you connect your Android device to your computer over Wi-Fi an
 
 Before running this script, ensure the following:
 
-* **ADB** (Android Debug Bridge) is installed on your computer.
-  * If not, you can install it via the [official Android developer documentation](https://developer.android.com/studio/command-line/adb).
-  * Make sure the `adb` command is added to your system's PATH environment variable.
-* **scrcpy** is installed. Scrcpy is a tool for displaying and controlling Android devices connected via USB (or wirelessly).
+* **scrcpy** is installed. Scrcpy includes the required ADB files (`adb.exe`), so you don't need to install ADB separately.
+
   * Install scrcpy by following the instructions on [GitHub](https://github.com/Genymobile/scrcpy).
+* Put the **scrcpy** folder location in your system’s **PATH** environment variable.
+* Download the script (e.g., `wifi_scrcpy_connector.bat`) and paste it into the **scrcpy** folder.
 * Your Android device has **Developer Options** and **USB Debugging** enabled.
+
   * To enable Developer Options: Go to *Settings* > *About phone* > Tap on *Build number* 7 times.
-  * To enable USB Debugging: Go to *Settings* > *Developer options* > Turn on  *USB debugging* .
+  * To enable USB Debugging: Go to *Settings* > *Developer options* > Turn on *USB debugging*.
 
 ---
 
@@ -46,13 +47,12 @@ The script does the following:
 
 ## Usage
 
-1. **Download the script** : Download the script (usually named `wifi_scrcpy_connector.bat`) to your computer.
+1. **Download the script** : Download the script (e.g., `wifi_scrcpy_connector.bat`) and paste it in the **scrcpy** folder.
 2. **Connect your Android device** : Use a USB cable to connect your Android device to your computer.
-3. **Run the script** : Double-click on the `.bat` script to run it.
+3. **Run the script** : Open **PowerShell** or **Command Prompt**, type the script name (e.g., `wifi_scrcpy_connector.bat`), and press **Enter**.
 
-* The script will automatically check if ADB is installed, verify the device connection, enable ADB over Wi-Fi, and then launch scrcpy to mirror your device’s screen.
-
-1. **Enjoy** : Your Android device's screen will be mirrored on your computer, and you can interact with it using the mouse and keyboard.
+   * Alternatively, you can **double-click** the script file to run it.
+4. **Enjoy** : Your Android device's screen will be mirrored on your computer, and you can interact with it using the mouse and keyboard.
 
 ---
 
@@ -60,27 +60,27 @@ The script does the following:
 
 ### 1. Check if ADB is installed
 
-The script first checks if ADB is installed and available in the system’s PATH. If not, the script will prompt the user to install ADB.
+The script ensures that ADB is available by checking if `adb.exe` is in the system's **PATH**, as scrcpy includes the necessary ADB tool.
 
 ### 2. Verify device connection
 
-The script then verifies if any Android device is connected via USB. It uses the `adb devices` command to check for a connected device. If no device is found, the script will exit.
+The script verifies if any Android device is connected via USB using the `adb devices` command. If no device is found, the script exits.
 
 ### 3. Retrieve device IP address
 
-Once a device is detected, the script uses the `adb shell ip route` command to retrieve the device's IP address. This IP address is essential for connecting to the device over Wi-Fi.
+Once a device is detected, the script retrieves the device's IP address using the `adb shell ip route` command.
 
 ### 4. Enable ADB over TCP/IP
 
-The script enables ADB over TCP/IP using the command `adb -s <device_id> tcpip 5555`. This step allows ADB to communicate with the device over Wi-Fi on port 5555.
+The script enables ADB over Wi-Fi using the command `adb -s <device_id> tcpip 5555`. This allows ADB to communicate with the device over Wi-Fi.
 
 ### 5. Disconnect USB connection
 
-After enabling ADB over Wi-Fi, the script disconnects the USB connection using `adb -s <device_id> disconnect`. This ensures that the communication happens wirelessly.
+The script disconnects the USB connection using `adb -s <device_id> disconnect` to switch to wireless communication.
 
 ### 6. Connect over Wi-Fi
 
-The script attempts to connect to the device via its IP address (retrieved earlier) using `adb connect <device_ip>:5555`.
+The script connects to the device via its IP address using `adb connect <device_ip>:5555`.
 
 ### 7. Launch scrcpy
 
@@ -93,12 +93,12 @@ Finally, the script runs **scrcpy** to display and control the device’s screen
 ### ADB not found
 
 * **Error** : `[ERROR] ADB is not installed or not found in the system PATH.`
-* **Solution** : Ensure that ADB is installed and added to your system's PATH environment variable.
+  **Solution** : Ensure that you have added the **scrcpy** folder to the system's **PATH**. Since scrcpy includes `adb.exe`, you do not need to install ADB separately.
 
 ### Device not detected
 
 * **Error** : `[ERROR] No device connected via USB.`
-* **Solution** : Ensure your Android device is properly connected via USB and that USB debugging is enabled on the device.
+* **Solution** : Ensure your Android device is connected via USB, and **USB debugging** is enabled.
 
 ### IP address retrieval failed
 
@@ -113,7 +113,7 @@ Finally, the script runs **scrcpy** to display and control the device’s screen
 ### Scrcpy not launching
 
 * **Error** : `scrcpy command not recognized.`
-* **Solution** : Ensure scrcpy is properly installed and added to the PATH environment variable.
+* **Solution** : Ensure **scrcpy** is properly installed and the **scrcpy folder** is added to the **PATH**.
 
 ---
 
